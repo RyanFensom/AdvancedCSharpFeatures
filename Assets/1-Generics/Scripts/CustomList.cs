@@ -45,7 +45,8 @@ namespace Generics
             amount++;
         }
 
-        public void Remove(T item)
+        // Used to remove an item by name
+        public void RemoveItem(T item)
         {
             // Create a new array of amount - 1
             T[] cache = new T[amount - 1];
@@ -58,6 +59,35 @@ namespace Generics
                 for (int i = 0; i < list.Length; i++)
                 {
                     if (EqualityComparer<T>.Default.Equals(list[i], item))
+                    {
+                        itemRemoved = true;
+                    }
+                    else
+                    {
+                        cache[i] = itemRemoved ? list[i - 1] : list[i];
+                    }
+                }
+            }
+            // Replace old array with new array
+            list = cache;
+            // decrease amount
+            amount--;
+        }
+
+        // Used to remove an item by index
+        public void RemoveIndex(int index)
+        {
+            // Create a new array of amount - 1
+            T[] cache = new T[amount - 1];
+            // Set boolean to false
+            itemRemoved = false;
+            // Check if the list has been initialized
+            if (list != null)
+            {
+                // Copy all existing items to new array except removed item
+                for (int i = 0; i < list.Length; i++)
+                {
+                    if (i == index)
                     {
                         itemRemoved = true;
                     }
