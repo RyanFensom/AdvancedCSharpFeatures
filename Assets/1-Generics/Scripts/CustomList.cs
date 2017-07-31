@@ -76,7 +76,7 @@ namespace Generics
         public void Clear()
         {
             // list equals nothing
-            list = new T[0];
+            list = null;
             // amount = 0
             amount = 0;
         }
