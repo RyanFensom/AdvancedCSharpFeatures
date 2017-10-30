@@ -13,12 +13,13 @@ namespace Delegates
 
         private bool isAttacking = false;
 
+        // Update is called once per frame
         protected override void Update()
         {
-            // Call bass update
+            // Call super's update
             base.Update();
             // IF is not attacking AND target is within attackRange
-            if (!isAttacking && IsCloseTotarget(attackRange))
+            if (!isAttacking && IsCloseToTarget(attackRange))
             {
                 StartCoroutine(Attack());
             }
@@ -38,4 +39,3 @@ namespace Delegates
         }
     }
 }
-

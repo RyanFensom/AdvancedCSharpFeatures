@@ -11,8 +11,6 @@ namespace Delegates
         public int minAmount = 0, maxAmount = 20;
         public float spawnRate = 1f;
 
-        public delegate GameObject SpawnFunc(int amount);
-
         // Use this for initialization
         void Start()
         {
@@ -21,7 +19,7 @@ namespace Delegates
 
         void SpawnTroll(int amount)
         {
-            
+
         }
 
         void SpawnOrc(int amount)
@@ -32,7 +30,7 @@ namespace Delegates
         // Update is called once per frame
         void Update()
         {
-            //SpawnFunc( = SpawnOrc(Random.Range(minAmount, maxAmount));
+
         }
     }
 }

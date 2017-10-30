@@ -12,7 +12,7 @@ namespace Delegates
         void Update()
         {
             // IF health <= 0
-            if (health < 0)
+            if(health <= 0)
             {
                 // Destroy gameObject
                 Destroy(gameObject);

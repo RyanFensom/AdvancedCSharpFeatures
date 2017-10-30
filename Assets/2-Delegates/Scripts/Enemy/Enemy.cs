@@ -21,7 +21,7 @@ namespace Delegates
 
         private List<BehaviourFunc> behaviourFuncs = new List<BehaviourFunc>();
         private NavMeshAgent agent;
-        
+
         // Use this for initialization
         void Awake()
         {
@@ -31,17 +31,15 @@ namespace Delegates
             behaviourFuncs.Add(Seek);
         }
 
-        // Used to run idle state
         void Idle()
         {
-            // Stop agent
+            // Stop the Nav Agent
             agent.Stop();
         }
 
-        // Used to seek a player
         void Seek()
         {
-            // Resume Nav mesh agent
+            // Resume the Nav Agent
             agent.Resume();
             // IF target is not null
             if (target != null)
@@ -56,21 +54,19 @@ namespace Delegates
             this.target = target;
         }
 
-
-        public bool IsCloseTotarget(float distance)
+        public bool IsCloseToTarget(float distance)
         {
-            // IF target is not null
+            // IF target is not null 
             if (target != null)
             {
                 float distToTarget = Vector3.Distance(transform.position, target.position);
-                // IF distanceToTarget is less than or equal to distance
+                // IF distToTarget is less than or equal to distance
                 if (distToTarget <= distance)
                 {
-                    // Return true
                     return true;
                 }
             }
-            return false;            
+            return false;
         }
 
         // Update is called once per frame
@@ -81,4 +77,3 @@ namespace Delegates
         }
     }
 }
-

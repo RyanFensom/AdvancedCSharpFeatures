@@ -37,9 +37,8 @@ namespace Delegates
 
         void Decelerate()
         {
-            // velocity = -velocity * deceleration
+            // velocity = -velocity x deceleration
             rigid.velocity = -rigid.velocity * deceleration;
         }
     }
 }
-

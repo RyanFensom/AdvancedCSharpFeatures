@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
 namespace Delegates
 {
     public class CameraFollow : MonoBehaviour
     {
-
         public Transform target;
         public float distance = 3.0f;
         public float height = 3.0f;
@@ -17,7 +15,7 @@ namespace Delegates
 
         void Update()
         {
-            if (target != null)
+            if(target != null)
             {
                 Follow();
             }
@@ -38,8 +36,7 @@ namespace Delegates
                 Quaternion wantedRotation = Quaternion.LookRotation(target.position - transform.position, Vector3.up);
                 transform.rotation = Quaternion.Slerp(transform.rotation, wantedRotation, Time.deltaTime * rotationDamping);
             }
-            else transform.LookAt(target, target.up);
+            else transform.LookAt(target, Vector3.up);
         }
     }
 }
-
