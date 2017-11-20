@@ -1,0 +1,57 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace AbstractClasses
+{
+    [RequireComponent(typeof(Rigidbody2D))]
+    public class Movement : MonoBehaviour
+    {
+        public float acceleration = 25f;
+        public float hyperSpeed = 150f;
+        public float rotationSpeed = 5f;
+
+        private Rigidbody2D rigid;
+
+        private float inputV;
+        private float inputH;
+
+        // Use this for initialization
+        void Awake()
+        {
+            rigid = GetComponent<Rigidbody2D>();
+        }
+
+        void Update()
+        {
+            inputV = Input.GetAxisRaw("Vertical");
+            inputH = Input.GetAxis("Horizontal");
+        }
+
+        // Update is called once per frame
+        void FixedUpdate()
+        {
+            Accelerate();
+            Rotate();
+        }
+
+        void Accelerate()
+        {
+            Vector2 force = transform.right * inputV;
+            if(Input.GetKey(KeyCode.LeftShift))
+            {
+                force *= hyperSpeed;
+            }
+            else
+            {
+                force *= acceleration;
+            }
+            rigid.AddForce(force);
+        }
+
+        void Rotate()
+        {
+            transform.rotation *= Quaternion.AngleAxis(rotationSpeed * inputH, Vector3.back);
+        }
+    }
+}
