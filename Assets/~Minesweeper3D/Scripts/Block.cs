@@ -21,6 +21,7 @@ namespace Minesweeper3D
         // Use this for initialization
         void Awake()
         {
+            // Grab the reference to renderer
             rend = GetComponent<Renderer>();
         }
 
@@ -30,12 +31,6 @@ namespace Minesweeper3D
             textElement.transform.SetParent(null);
             // Randomly decide if it's a mine or not
             isMine = Random.value < .05f;
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
         }
 
         void UpdateText(int adjacentMines)

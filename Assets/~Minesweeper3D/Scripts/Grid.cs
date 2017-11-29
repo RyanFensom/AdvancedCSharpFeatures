@@ -11,6 +11,7 @@ namespace Minesweeper3D
         public GameObject blockPrefab;
         // The grid's dimensions
         public int height = 10, width = 10, depth = 10;
+        // Spacing between each block
         public float spacing = 1.2f;
 
         // Multi-Dimensional Arrary storing the blocks (in this case 3D)
@@ -75,7 +76,7 @@ namespace Minesweeper3D
             }
         }
 
-        /*
+        
         // Count adjacent mines at element
         public int GetAdjacentMineCountAt(Block b)
         {
@@ -130,12 +131,15 @@ namespace Minesweeper3D
                         }
 
                     }
+
+                    
                 }
 
                                
             }
+            return count;
         }
-*/
+
         // Used to destroy a block upon clicking it
         public void RemoveBlock()
         {
